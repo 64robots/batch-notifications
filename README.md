@@ -9,19 +9,19 @@ notifications are grouped in batches that will be sent in periods of time.
 
 ## Installation
 
-####1 - Require the package
+#### 1 - Require the package
 
 ``
 composer require 64robots/batch-notifications
 ``
 
-####2 - Publish
+#### 2 - Publish
 
 ``
 php artisan vendor:publish --provider="R64\BatchNotifications\BatchNotificationsServiceProvider"
 ``
 
-####2 - Run the migration that was just published
+#### 3 - Run the migration that was just published
 
 ``
 php artisan migrate
@@ -29,4 +29,4 @@ php artisan migrate
 
 ## Usage
 
-####1 - 
+#### 1 - 

@@ -2,8 +2,8 @@
 
 namespace R64\BatchNotifications\Console;
 
-use App\Models\Batch_Notification;
-use App\Models\Batch_Notification_Event;
+use R64\BatchNotifications\Models\Batch_Notification;
+use R64\BatchNotifications\Models\Batch_Notification_Event;
 use Illuminate\Console\Command;
 use Illuminate\Notifications\Notifiable;
 

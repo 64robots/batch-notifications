@@ -101,7 +101,7 @@ class DocumentAssignedEmail extends Notification implements ShouldQueue
 ```
 Batch_Notification_Event::makeOne(
     Auth::user(), /* The notifiable model instance. This can be any Notifiable Eloquent model */
-    $document, /* The eventable instance you want to attach to the notification. All batch's eventables will be present on your notification constructor). This can be any Eloquent model. */
+    $document, /* The eventable instance you want to attach to the notification. All batch's eventables will be present on your notification constructor. This can be any Eloquent model. */
     DocumentAssignedEmail::class, /* The fully qualified name of your notification class */
     now()->addMinutes(2) /* The minimum interval that the notifiable model will be notified. In this example, the notifications will be sent every two minutes */
 );

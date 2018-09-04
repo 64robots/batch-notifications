@@ -1,0 +1,31 @@
+{
+    "name": "64robots/batch-notifications",
+    "description": "A Laravel package that groups repetitive notifications in batches",
+    "keywords": [
+        "laravel",
+        "batch",
+        "notifications"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/support": "5.*",
+        "illuminate/notifications": "5.*",
+        "illuminate/console": "5.*",
+        "illuminate/database": "5.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "R64\\BatchNotifications": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "R64\\BatchNotifications\\BatchNotificationsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

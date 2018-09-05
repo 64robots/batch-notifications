@@ -5,7 +5,7 @@ namespace R64\BatchNotifications\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Batch_Notification_Event extends Model
+class BatchNotificationEvent extends Model
 {
     protected $table = 'batch_notification_events';
     protected $guarded = ['id'];
@@ -23,7 +23,7 @@ class Batch_Notification_Event extends Model
 
     public function batchNotification()
     {
-        return $this->belongsTo(Batch_Notification::class, 'batch_notification_id');
+        return $this->belongsTo(BatchNotification::class, 'batch_notification_id');
     }
 
     /***************************************************************************************
@@ -32,7 +32,7 @@ class Batch_Notification_Event extends Model
 
     public static function queue(Model $notifiable, Model $eventable, string $notification_class, Carbon $dispatch_at)
     {
-        $batch_notification = Batch_Notification::firstOrCreate([
+        $batch_notification = BatchNotification::firstOrCreate([
             'notifiable_id' => $notifiable->id,
             'notifiable_type' => get_class($notifiable),
             'notification_class' => $notification_class,
@@ -41,7 +41,7 @@ class Batch_Notification_Event extends Model
             'dispatch_at' => $dispatch_at
         ]);
 
-        $event = new Batch_Notification_Event();
+        $event = new BatchNotificationEvent();
         $event->batchNotification()->associate($batch_notification);
         $event->eventable()->associate($eventable);
 

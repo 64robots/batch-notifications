@@ -2,8 +2,8 @@
 
 namespace R64\BatchNotifications\Console;
 
-use R64\BatchNotifications\Models\Batch_Notification;
-use R64\BatchNotifications\Models\Batch_Notification_Event;
+use R64\BatchNotifications\Models\BatchNotification;
+use R64\BatchNotifications\Models\BatchNotificationEvent;
 use Illuminate\Console\Command;
 use Illuminate\Notifications\Notifiable;
 
@@ -38,15 +38,15 @@ class DispatchBatchNotifications extends Command
      */
     public function handle()
     {
-        $notifications = Batch_Notification::where('dispatched', false)
+        $notifications = BatchNotification::where('dispatched', false)
             ->where('dispatch_at', '<=', now()->toDateTimeString())
             ->get();
 
-        /** @var Batch_Notification $notification */
+        /** @var BatchNotification $notification */
         foreach ($notifications as $notification) {
 
             $eventables = collect();
-            /** @var Batch_Notification_Event $event */
+            /** @var BatchNotificationEvent $event */
             foreach ($notification->events as $event) {
                 $eventables->push($event->eventable);
             }

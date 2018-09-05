@@ -99,7 +99,7 @@ class DocumentAssignedEmail extends Notification implements ShouldQueue
 #### 2 - Create the notification event for the intended notification:
 
 ```
-Batch_Notification_Event::makeOne(
+BatchNotificationEvent::queue(
     Auth::user(), /* The notifiable model instance. This can be any Notifiable Eloquent model */
     $document, /* The eventable instance you want to attach to the notification. All batch's eventables will be present on your notification constructor. This can be any Eloquent model. */
     DocumentAssignedEmail::class, /* The fully qualified name of your notification class */

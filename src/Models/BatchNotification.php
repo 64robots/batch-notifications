@@ -4,7 +4,7 @@ namespace R64\BatchNotifications\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Batch_Notification extends Model
+class BatchNotification extends Model
 {
     protected $table = 'batch_notifications';
     protected $guarded = ['id'];
@@ -26,6 +26,6 @@ class Batch_Notification extends Model
 
     public function events()
     {
-        return $this->hasMany(Batch_Notification_Event::class, 'batch_notification_id');
+        return $this->hasMany(BatchNotificationEvent::class, 'batch_notification_id');
     }
 }

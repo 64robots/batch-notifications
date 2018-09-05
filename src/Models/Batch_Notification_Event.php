@@ -30,7 +30,7 @@ class Batch_Notification_Event extends Model
      ** CRUD
      ***************************************************************************************/
 
-    public static function makeOne(Model $notifiable, Model $eventable, string $notification_class, Carbon $dispatch_at)
+    public static function queue(Model $notifiable, Model $eventable, string $notification_class, Carbon $dispatch_at)
     {
         $batch_notification = Batch_Notification::firstOrCreate([
             'notifiable_id' => $notifiable->id,
@@ -46,7 +46,5 @@ class Batch_Notification_Event extends Model
         $event->eventable()->associate($eventable);
 
         $event->save();
-
-        return $event;
     }
 }

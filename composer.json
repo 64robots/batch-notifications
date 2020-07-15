@@ -15,8 +15,8 @@
         "illuminate/database": "6.*"
     },
     "autoload": {
-        "psr-0": {
-            "R64\\BatchNotifications": "src/"
+        "psr-4": {
+            "R64\\BatchNotifications\\": "src"
         }
     },
     "extra": {

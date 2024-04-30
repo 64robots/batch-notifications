@@ -27,7 +27,7 @@ class BatchNotificationsServiceProvider extends ServiceProvider
         ]);
     }
 
-    protected function getMigrationFileName($migrationName, $time)
+    protected function getMigrationFileName($migrationName, $time): string
     {
         $timestamp = date('Y_m_d_His', $time);
 

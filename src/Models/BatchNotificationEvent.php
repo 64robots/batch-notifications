@@ -4,6 +4,8 @@ namespace R64\BatchNotifications\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class BatchNotificationEvent extends Model
 {
@@ -16,12 +18,12 @@ class BatchNotificationEvent extends Model
      ** RELATIONS
      ***************************************************************************************/
 
-    public function eventable()
+    public function eventable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function batchNotification()
+    public function batchNotification(): BelongsTo
     {
         return $this->belongsTo(BatchNotification::class, 'batch_notification_id');
     }
@@ -30,7 +32,7 @@ class BatchNotificationEvent extends Model
      ** CRUD
      ***************************************************************************************/
 
-    public static function queue(Model $notifiable, Model $eventable, string $notification_class, Carbon $dispatch_at)
+    public static function queue(Model $notifiable, Model $eventable, string $notification_class, Carbon $dispatch_at): void
     {
         $batch_notification = BatchNotification::firstOrCreate([
             'notifiable_id' => $notifiable->id,

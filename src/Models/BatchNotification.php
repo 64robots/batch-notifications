@@ -13,7 +13,8 @@ class BatchNotification extends Model
     protected $hidden = ['created_at', 'updated_at'];
     protected $dates = ['dispatch_at', 'created_at', 'updated_at'];
     protected $casts = [
-        'dispatched' => 'boolean'
+        'dispatched' => 'boolean',
+        'dispatch_at' => 'datetime',
     ];
     protected $fillable = ['notifiable_id', 'notifiable_type', 'notification_class', 'dispatched', 'dispatch_at'];
 
